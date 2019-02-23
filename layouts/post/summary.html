@@ -1,0 +1,17 @@
+<div class="post-box">
+  <a href="{{ .URL }}" class="">
+    <article class="">
+      <header class="post-img" style="background-image:url({{ .Params.img }});" lazyload="on">
+
+      </header>
+      <div class="post-body">
+        <h3 class="post-title"> {{ .Title }} </h3>
+        {{ if isset .Params "cover" }}
+        <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}">
+        {{ end }}
+        <p class="read-more">Read more ›</p>
+        <p class="post-date"> {{ .Date.Format "Jan 2, 2006" }}</p>
+      </div>
+    </article>
+  </a>
+</div>

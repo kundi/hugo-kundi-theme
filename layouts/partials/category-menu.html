@@ -1,0 +1,27 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <nav class="categories">
+          <ul class="category-list">
+            {{ $type := .Type }}
+            {{ $kind := .Kind }}
+            {{ $currentPage := . }}
+
+            {{ $currentUrl := .URL }}
+
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            {{ $currentCategoryUrl := $name | printf "%s%s" "/categories/" | printf "%s/" }}
+            {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+            <li class="category-item {{ if eq $currentUrl $currentCategoryUrl }} is-active{{ end }}"><a href="{{ .Permalink }}">
+                {{ .LinkTitle }}</a></li>
+            {{ end }}
+            {{ end }}
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+html {
+  line-height: 1.618;
+  font-family: $family-sans-serif;
+  font-size: 16px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  color: $text;
+  background-color: $main-background;
+  font-feature-settings: "liga"on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+  font-family: apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
+    sans-serif;
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.main {
+  box-sizing: border-box;
+  /*
+  position: relative;
+  margin-left: 20rem;
+  border-right: 1px solid $main-border;
+  border-left: 1px solid $main-border;
+  box-shadow: 0 1px 4px $box-shadow;
+  background: $main-background;
+  padding: 1rem 2rem;
+  width: calc(100% - 20rem);
+  max-width: 70rem;
+  min-height: 100vh;
+  */
+  max-width: 100%;
+  width: 680px;
+  margin: 0 auto;
+  clear: both;
+
+  & .list-footer {
+    padding: 1.5rem 0;
+  }
+
+  @media print,
+  screen and (max-width: 800px) {
+    margin-left: 0;
+    border-top: 1px solid $main-border;
+    border-right: none;
+    border-bottom: 1px solid $main-border;
+    border-left: none;
+    padding: 0 1rem;
+    width: 100%;
+    min-height: initial;
+  }
+}
+
+a {
+  opacity: 0.8;
+  text-decoration: none;
+  color: $text-strong;
+
+  &:focus,
+  &:hover {
+    opacity: 1;
+    outline: none;
+    color: $black-ter;
+  }
+}
+
+.btn {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  border: $footer-btn-bg 1px solid;
+  color: $footer-btn-color;
+  text-align: center;
+  background-color: $footer-btn-bg;
+  padding: 1rem 4rem 1rem 4rem;
+  display: inline-block;
+  transition: all .5s;
+
+  &:hover {
+    background-color: $footer-btn-hover-bg;
+    color: $footer-btn-color;
+  }
+}

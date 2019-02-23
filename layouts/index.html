@@ -1,0 +1,26 @@
+{{ define "main" }} {{ partial "header.html" . }}
+
+{{ partial "category-menu.html" . }}
+
+<section class="">
+  <div class="container">
+
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (index .Site.Params "paginate" | default 10) }}
+
+    {{ partial "post-box.html" . }}
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <footer class="list-footer">
+      <nav class="pagination">
+        <h3 class="offscreen">Pagination</h3>
+        {{ if $paginator.HasPrev }}
+        <a class="pagination-previous" href="{{ $paginator.Prev.URL }}">← Newer Posts</a>
+        {{ end }} {{ if $paginator.HasNext }}
+        <a class="pagination-next" href="{{ $paginator.Next.URL }}">Older Posts →</a>
+        {{ end }}
+      </nav>
+    </footer>
+    {{ end }}
+  </div>
+</section>
+{{ partial "footer.html" . }} {{ end }}

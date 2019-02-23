@@ -1,0 +1,39 @@
+.site-footer {
+  height: 155px;
+  clear: both;
+  margin-top: 2.5em;
+  padding: 1.875em 0;
+  color: $footer-text-color;
+  background-color: $footer-bg;
+
+  p {
+    text-align: left;
+  }
+  
+  @media screen and (max-width: 800px) {
+    display: block;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: $text;
+    font-family: $family-monospace;
+    font-size: $size-7;
+
+    & a {
+      opacity: 0.7;
+      color: $text;
+
+      &:focus,
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .copy-right {
+    color: $grey;
+  }
+
+  .rss {
+    color: $rss-link-color;
+  }
+}
