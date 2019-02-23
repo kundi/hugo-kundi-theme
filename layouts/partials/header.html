@@ -30,7 +30,7 @@
         {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{ end }}
         {{ if and (eq .Identifier "tags") (eq $kind "taxonomy") }} is-active{{ end }}
         {{ if and (eq .Identifier "home") (eq $type "post") }} is-active{{ end }}">
-        <a href="{{ .URL }}">{{ .Name }}</a>
+        <a class="{{ if eq .URL $currentUrl }} is-active {{ end }}" href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
       <li class="menu-item has-form">

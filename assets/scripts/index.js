@@ -72,20 +72,6 @@ toTopBtn &&
     scroll.animateScroll(0);
   });
 
-// 
-window.onload = function () {
-  var all_links = document.querySelectorAll(".menu-list a"),
-    i = 0, len = all_links.length,
-    full_path = location.href.split('#')[0]; //Ignore hashes?
-
-  // Loop through each link.
-  for (; i < len; i++) {
-    if (all_links[i].href.split("#")[0] == full_path) {
-      all_links[i].className += "is-active";
-    }
-  }
-}
-
 // Add target = _blank in all post content a tag
 var linkList = document.querySelectorAll('.post-content a');
 
