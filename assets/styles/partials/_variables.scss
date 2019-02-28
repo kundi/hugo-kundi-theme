@@ -23,22 +23,24 @@ $background: $white-ter;
 $code-background: rgb(246, 248, 250);
 $main-background: $white;
 
-/* nav */
+/* Navigation */
 $navbar-bg: #F3F3F3;
 $navbar-link-color: $black-ter;
 
-/* footer */
+/* Footer */
 $footer-bg: $navbar-bg;
 $footer-text-color: #636363;
-$footer-btn-bg: #46a5ae;
 
-/* post box */
+/* Post box */
 $post-box-bg: #f7f7f7;
 $read-more-link-color: #46a5ae;
 $post-date-color: #aaa;
 $author-social-icon-color: #46a5ae;
 $link-color: #46a5ae;
 
+/* Button colors */
+$btn-color: $dark;
+$btn-bg: $primary;
 
 /* Text colors */
 $text: $grey-dark;

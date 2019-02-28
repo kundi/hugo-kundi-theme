@@ -78,19 +78,15 @@ a {
 }
 
 .btn {
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
-  border: $footer-btn-bg 1px solid;
-  color: $footer-btn-color;
+  border: none;
+  color: $btn-color;
   text-align: center;
-  background-color: $footer-btn-bg;
+  background-color: $btn-bg;
   padding: 1rem 4rem 1rem 4rem;
   display: inline-block;
   transition: all .5s;
 
   &:hover {
-    background-color: $footer-btn-hover-bg;
-    color: $footer-btn-color;
+    background-color: darken($btn-bg, 0.1);
   }
 }
