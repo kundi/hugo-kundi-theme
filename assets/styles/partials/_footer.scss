@@ -9,7 +9,7 @@
   p {
     text-align: left;
   }
-  
+
   @media screen and (max-width: 800px) {
     display: block;
     padding: 2rem 1rem;
@@ -29,11 +29,4 @@
     }
   }
 
-  .copy-right {
-    color: $grey;
-  }
-
-  .rss {
-    color: $rss-link-color;
-  }
 }

@@ -2,32 +2,7 @@
 {{- $serviceWorker := resources.Get "service-worker.js" -}}
 
 <!-- Site Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="row center-sm">
-      <div class="col-sm-8 ">
-        <div class="row">
-          <div class="col-sm-8">
-            <p>We create enterprise-level search visibility tools for internet samurais of the future.</p>
-          </div>
-          <div class="col-sm-4">
-            <a class="button btn" href="https://nightwatch.io/">Learn more</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="copy-right">© Nightwatch {{ now.Year }} |
-              <a class="rss" rel="alternate" type="application/rss+xml" href="/index.xml">
-                RSS Feed</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-  </div>
-</footer>
+{{ partial "footer-content.html" . }}
 
 <!-- Smooth Scroll -->
 
