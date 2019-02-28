@@ -1,4 +1,4 @@
-var cacheName = 'hugo-nuo-v5';
+var cacheName = 'formaviva-hugo';
 var filesToCache = [
   '404.html',
   'favicon.ico',

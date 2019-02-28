@@ -1,6 +1,16 @@
+form {
+  label {
+    display: block;
+  }
+}
+
+input {
+  padding: 3px;
+}
+
 .search-form {
   display: inline;
-  
+
   input {
     border-radius: 5px;
     box-shadow: none;
