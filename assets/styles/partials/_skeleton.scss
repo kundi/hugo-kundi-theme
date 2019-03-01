@@ -82,11 +82,11 @@ a {
   color: $btn-color;
   text-align: center;
   background-color: $btn-bg;
-  padding: 1rem 4rem 1rem 4rem;
+  padding: 0.5rem 2rem;
   display: inline-block;
   transition: all .5s;
 
   &:hover {
-    background-color: darken($btn-bg, 0.1);
+    background-color: lighten($btn-bg, 5%);
   }
 }
