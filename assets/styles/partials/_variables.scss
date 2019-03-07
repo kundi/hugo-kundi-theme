@@ -15,7 +15,8 @@ $green-light: rgba(0, 171, 107, 0.5);
 $green-invert: $green;
 
 /* Theme colors */
-$primary: $green;
+$primary: $green !default;
+
 $primary-invert: $green-invert;
 $light: $white-ter;
 $dark: $grey-darker;
@@ -33,7 +34,7 @@ $footer-text-color: #636363;
 
 /* Post box */
 $post-box-bg: #f7f7f7;
-$read-more-link-color: #46a5ae;
+$read-more-link-color: $primary;
 $post-date-color: #aaa;
 $author-social-icon-color: $primary;
 $link-color: #46a5ae;

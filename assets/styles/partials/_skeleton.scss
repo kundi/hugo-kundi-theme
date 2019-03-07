@@ -85,6 +85,7 @@ a {
   padding: 0.5rem 2rem;
   display: inline-block;
   transition: all .5s;
+  cursor: pointer;
 
   &:hover {
     background-color: lighten($btn-bg, 5%);

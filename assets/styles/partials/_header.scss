@@ -1,6 +1,6 @@
 .logo {
-  width: 6.3em;
-  // height: 2rem;
+  //+ width: 6.3em;
+  height: 1.2rem;
 }
 
 .site-header {
@@ -22,12 +22,8 @@
   & a.is-active {
     color: $text-strong;
     font-weight: $weight-bold;
-
-    /*
-    border-bottom: solid 2px #ccc;
-    */
   }
-  
+
   & a {
     color: $navbar-link-color;
 
@@ -112,7 +108,7 @@
   & .menu-item {
     float: left;
     padding: 1rem 1rem;
-    
+
     @media screen and (max-width: 800px) {
       width: 100%;
       padding: .5rem 1rem;

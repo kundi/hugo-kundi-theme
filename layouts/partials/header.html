@@ -33,12 +33,15 @@
         <a class="{{ if eq .URL $currentUrl }} is-active {{ end }}" href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
+
+      <!--
       <li class="menu-item has-form">
-        <form class="search-form" role="search" action="http://blog.nightwatch.io/search">
+        <form class="search-form" role="search" action="">
           <input type="text" placeholder="Search" name="q" required="">
           <button class="button secondary" type="submit"><i class="fa fa-search"></i></button>
         </form>
       </li>
+    -->
     </ul>
   </nav>
 
@@ -231,4 +234,5 @@
       {{- end -}}
     </ul>
   </nav> -->
+
 </header>
