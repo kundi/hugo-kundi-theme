@@ -24,6 +24,12 @@ $background: $white-ter;
 $code-background: rgb(246, 248, 250);
 $main-background: $white;
 
+/* Text colors */
+$text: $grey-dark;
+$text-invert: $text;
+$text-light: $grey;
+$text-strong: $grey-darker;
+
 /* Navigation */
 $navbar-bg: #F3F3F3;
 $navbar-link-color: $black-ter;
@@ -44,12 +50,6 @@ $link-color: #46a5ae;
 /* Button colors */
 $btn-color: $dark;
 $btn-bg: $primary;
-
-/* Text colors */
-$text: $grey-dark;
-$text-invert: $text;
-$text-light: $grey;
-$text-strong: $grey-darker;
 
 /* Border colors */
 $border: $grey-lighter;
