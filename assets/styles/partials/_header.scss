@@ -20,7 +20,7 @@
   */
 
   & a.is-active {
-    color: $text-strong;
+    color: $navbar-active-link-color;
     font-weight: $weight-bold;
   }
 
@@ -29,7 +29,7 @@
 
     &:focus,
     &:hover {
-      color: $text-strong;
+      color: $navbar-active-link-color;
     }
   }
 
@@ -86,6 +86,7 @@
   font-size: $size-4;
   background-color: transparent;
   transition: all $easing $speed;
+  color: $toggle-menu-icon-color;
 
   @media screen and (max-width: 800px) {
     position: absolute;
