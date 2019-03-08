@@ -73,7 +73,8 @@
   float: left;
 
   @media screen and (max-width: 800px) {
-    margin-top: 1rem;
+    margin-top: .7rem;
+    margin-bottom: .7rem;
   }
 }
 
@@ -90,7 +91,7 @@
 
   @media screen and (max-width: 800px) {
     position: absolute;
-    top: 1rem;
+    top: .7rem;
     right: 1rem;
     display: block;
   }
