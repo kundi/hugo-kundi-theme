@@ -1,6 +1,10 @@
 .logo {
   //+ width: 6.3em;
   height: 1.2rem;
+  
+  @media screen and (max-width: 800px) {
+    height: 1rem;
+  }
 }
 
 .site-header {
