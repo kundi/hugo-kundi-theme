@@ -107,8 +107,12 @@
   & .menu-list {
     list-style: none;
     padding: 0;
-    float: left;
+    float: right;
     margin-top: -10px;
+
+    @media screen and (max-width: 800px) {
+      float: left;
+    }
   }
 
   & .menu-item {
