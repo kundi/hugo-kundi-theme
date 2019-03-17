@@ -37,9 +37,11 @@ $navbar-hover-link-color: $grey;
 $navbar-active-link-color: $white-ter;
 $toggle-menu-icon-color: #000;
 
-/* search-box */ 
+/* button */ 
 $primary-button-bg: #1a1a1a;
 $primary-hover-button-bg: $primary;
+$secondary-button-bg: $primary;
+$secondary-hover-button-bg: $primary;
 
 /* search-box */ 
 $navbar-search-box-bg: #1a1a1a;
@@ -49,7 +51,10 @@ $navbar-hover-search-box-color: $white;
 
 /* Footer */
 $footer-bg: $navbar-bg;
-$footer-text-color: #636363;
+$footer-text-color: $white;
+
+/* Footer Navigation */
+$footer-nav-link-color: $white;
 
 /* Post box */
 $post-box-bg: #f7f7f7;

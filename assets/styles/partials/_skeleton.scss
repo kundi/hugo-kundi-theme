@@ -68,6 +68,7 @@ a {
   opacity: 0.8;
   text-decoration: none;
   color: $text-strong;
+  transition: all .5s;
 
   &:focus,
   &:hover {

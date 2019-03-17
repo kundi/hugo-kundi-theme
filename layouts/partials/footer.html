@@ -2,6 +2,7 @@
 {{- $serviceWorker := resources.Get "service-worker.js" -}}
 
 <!-- Site Footer -->
+{{ partial "footer-tagline.html" . }}
 {{ partial "footer-content.html" . }}
 
 <!-- Smooth Scroll -->
