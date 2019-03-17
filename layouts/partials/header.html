@@ -24,7 +24,12 @@
 
       {{ $currentUrl := .URL }}
 
-
+      <li class="menu-item">
+        <form class="search-form" role="search" action="http://blog.nightwatch.io/search">
+          <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+          <input type="text" placeholder="Search articles..." autocomplete="off" name="q" required="">
+        </form>
+      </li>
       {{ range .Site.Menus.main }}
       <li class="menu-item
         {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{ end }}

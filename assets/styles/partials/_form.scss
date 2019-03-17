@@ -12,9 +12,31 @@ input {
 
 .search-form {
   display: inline;
+  background-color: $navbar-search-box-bg;
+  padding: .8rem .5rem;
+  border-radius: 5px;
+  transition: all .5s;
+
+  &:hover, &:focus {
+    background-color: $navbar-hover-search-box-bg;
+
+    input, .search-button, ::placeholder {
+      color: $white;
+    }
+  }
+
+  .search-button {
+    background: none;
+    border: none;
+    color: #707070;
+  }
 
   input {
-    border-radius: 5px;
+    border: none;
+    background: none;
     box-shadow: none;
+    color: #fff;
+    outline: none;
   }
+  
 }
