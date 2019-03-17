@@ -1,0 +1,11 @@
+.primary-btn {
+  padding: .5rem 2rem!important;
+  background-color: $primary-button-bg;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $primary-hover-button-bg;
+    color: $white!important;
+  }
+}
+
