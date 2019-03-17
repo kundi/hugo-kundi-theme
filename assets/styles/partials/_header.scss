@@ -9,7 +9,7 @@
 
 .site-header {
   box-sizing: border-box;
-  padding: 50px 20px;
+  padding: 65px 60px;
   padding-top: 15px;
   background-color: $navbar-bg;
 
@@ -26,14 +26,19 @@
   & a.is-active {
     color: $navbar-active-link-color;
     font-weight: $weight-bold;
+    border-bottom: 2px solid #fff;
+    transition: all .5s;
+
   }
 
   & a {
     color: $navbar-link-color;
-
+    transition: all .5s;
     &:focus,
     &:hover {
-      color: $navbar-active-link-color;
+      color: $navbar-hover-link-color;
+      border-color: $primary;
+      transition: all .5s;
     }
   }
 
@@ -75,6 +80,7 @@
   font-weight: $weight-bold;
   margin: 0;
   float: left;
+  padding-top: .5rem;
 
   @media screen and (max-width: 800px) {
     margin-top: .7rem;
@@ -128,11 +134,13 @@
       display: inline-block;
       height: 1.5rem;
       line-height: 1.5;
-
+      padding: .5rem 0;
+      
       @media screen and (max-width: 800px) {
         display: block;
       }
     }
+
   }
 
   &.collapsed {
