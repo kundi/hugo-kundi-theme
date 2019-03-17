@@ -2,7 +2,7 @@
 
 {{ partial "category-menu.html" . }}
 
-<section class="">
+<section class="home-page">
   <div class="container">
 
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (index .Site.Params "paginate" | default 10) }}

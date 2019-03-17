@@ -1,49 +1,20 @@
-<div class="footer-divider"></div>
 <footer class="site-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-        {{ if .Site.Menus.features }}
-        <h4 class="menu-title">Features</h4>
-        <ul class="footer-menu-list">
-          {{ range .Site.Menus.features }}
-          <li class="list-item"><a href="{{.URL}}"> {{.Name}}</a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-      <div class="col-sm-2">
-        {{ if .Site.Menus.resources }}
-        <h4 class="menu-title">Resources</h4>
-        <ul class="footer-menu-list">
-          {{ range .Site.Menus.resources }}
-          <li class="list-item"><a href="{{.URL}}"> {{.Name}}</a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-      <div class="col-sm-8">
-        {{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
-        {{- $facebook := resources.Get ("images/facebook.svg") -}}
-        {{- $twitter := resources.Get ("images/twitter.svg") -}}
-        {{- $linkedin := resources.Get ("images/linkedin.svg") -}}
-        <div class="footer-block">
-          <h4>
-            <img class="logo" src="{{ $logo.RelPermalink }}" alt="{{ .Site.Title }}">
-          </h4>
-          <p>Made by hand in 7 cities</p>
-          <ul class="social-logo">
-            <li class="logo-item"><a href="#"><img src="{{ $twitter.RelPermalink }}" alt="twitter"></a></li>
-            <li class="logo-item"><a href="#"><img src="{{ $facebook.RelPermalink }}" alt="facebook"></a></li>
-            <li class="logo-item"><a href="#"><img src="{{ $linkedin.RelPermalink }}" alt="linkedin"></a></li>
-          </ul>
-          <p class="copy-right">© {{ now.Year }} | {{ .Site.Title }}
-            <a class="rss" rel="alternate" type="application/rss+xml" href="/index.xml">RSS Feed</a>
-          </p>
+    <div class="row center-sm">
+      <div class="col-sm-8 ">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>{{ .Site.Params.Description }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="copy-right">© {{ .Site.Title }} {{ now.Year }} |
+              <a class="rss" rel="alternate" type="application/rss+xml" href="/index.xml">RSS Feed</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    
-        
   </div>
 </footer>

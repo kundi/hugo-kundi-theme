@@ -1,5 +1,5 @@
 {{- $wechat := resources.Get (.Site.Params.wechat | default "images/qrcode.jpg") -}}
-{{- $avatar := resources.Get (.Site.Params.avatar | default "images/logo.svg") -}}
+{{- $avatar := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
 
 <header class="site-header">
 
@@ -24,12 +24,6 @@
 
       {{ $currentUrl := .URL }}
 
-      <li class="menu-item">
-        <form class="search-form" role="search" action="http://blog.nightwatch.io/search">
-          <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
-          <input type="text" placeholder="Search articles..." autocomplete="off" name="q">
-        </form>
-      </li>
       {{ range .Site.Menus.main }}
       <li class="menu-item
         {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{ end }}
@@ -38,7 +32,6 @@
         <a class="{{ if eq .URL $currentUrl }} is-active {{ end }}" href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
-      <li class="menu-item"><a class="primary-btn" href="#">try for free</a></li>
 
       <!--
       <li class="menu-item has-form">
