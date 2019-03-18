@@ -85,6 +85,7 @@
   @media screen and (max-width: 800px) {
     margin-top: .7rem;
     margin-bottom: .7rem;
+    padding-top: 0;
   }
 }
 
@@ -138,6 +139,7 @@
       
       @media screen and (max-width: 800px) {
         display: block;
+        width: fit-content;
       }
     }
 
