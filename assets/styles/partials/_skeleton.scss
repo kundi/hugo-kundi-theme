@@ -73,14 +73,13 @@ body {
 }
 
 .container {
-
   
-  @media only screen and (min-width: 64em) {
-    width: 64rem!important;
-  }
-
   @media only screen and (min-width: 48em) {
     width: 46rem!important;
+  }
+
+  @media only screen and (min-width: 64em) {
+    width: 64rem!important;
   }
 }
 
