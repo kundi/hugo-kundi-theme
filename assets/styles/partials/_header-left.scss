@@ -1,0 +1,19 @@
+.header-left {
+  height: 100%;
+  position: fixed;
+
+  & .menu-list {
+    margin-top: 80px;
+    float: unset;
+
+    @media screen and (max-width: 800px) {
+      margin-top: -10px;
+    }
+  }
+
+  & .menu-item {
+    float: unset;
+    display: block;
+  }
+
+}
