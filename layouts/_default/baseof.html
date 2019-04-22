@@ -20,16 +20,11 @@
 
 </head>
   <body>
-    {{ $navigation := .Site.Params.navigation}}
+    {{ $navigation := .Site.Params.header_navigation | default "top"}}
     {{ if eq $navigation "top"}}
     
     {{ partial "header-top.html" . }}
-    
-    {{ else if eq $navigation "left" }}
-    
-    {{ partial "header-left.html" . }}
-    
-    {{ end }}
+
     {{ if ne .Kind "404" }}
     <div class="suspension">
       <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
@@ -42,7 +37,21 @@
       {{ end }}
     </div>
     {{ end }}
-
+    
     {{ block "main" . }}{{ end }}
+    
+    {{ else if eq $navigation "left" }}
+  <div class="container-fluid no-padding">
+    <div class="row" style="margin: 0;">
+      <div class="col-sm-3 col-xs-12 no-padding">
+        {{ partial "header-left.html" . }}
+      </div>
+      <div class="col-sm-9 col-xs-12 no-padding">
+      {{ block "main" . }}{{ end }}
+      </div>
+    </div>
+  </div>
+    {{ end }}
+
   </body>
 </html>

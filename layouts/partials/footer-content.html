@@ -1,5 +1,7 @@
 <footer class="site-footer">
-  <div class="container">
+  {{ $navigation := .Site.Params.header_navigation | default "top"}}
+
+  <div class="{{ if eq $navigation "top"}}container{{else if eq $navigation "left"}}container-fluid{{ end }}">
     <div class="row center-sm">
       <div class="col-sm-8 ">
         <div class="row">

@@ -1,9 +1,11 @@
 {{ define "main" }} 
 
 {{ partial "category-menu.html" . }}
+    
+  {{ $navigation := .Site.Params.header_navigation | default "top"}}
 
 <section class="home-page">
-  <div class="container">
+  <div class="{{ if eq $navigation "top"}}container{{else if eq $navigation "left"}}container-fluid{{ end }}">
 
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (index .Site.Params "paginate" | default 10) }}
 

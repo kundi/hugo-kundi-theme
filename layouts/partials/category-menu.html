@@ -1,5 +1,7 @@
 <section>
-  <div class="container">
+    {{ $navigation := .Site.Params.header_navigation | default "top"}}
+
+  <div class="{{ if eq $navigation "top"}}container{{else if eq $navigation "left"}}container-fluid{{ end }}">
     <div class="row">
       <div class="col-sm-12">
 
