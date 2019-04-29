@@ -1,68 +1,77 @@
 {{ define "main" }}
-<section class="main post-detail">
-  <header class="post-header">
-    <h1 class="post-title">{{ .Title }}</h1>
-    <p class="post-meta">
-      <!-- @{{ if isset .Params "author" }}
-          {{ .Params.author }}
-        {{ else }}
-          {{ .Site.Params.author }}
-        {{ end }} · -->
-      {{ .Date.Format "Jan 2, 2006" }} ·
-      {{ .ReadingTime }} min read
-      <p class="authors">
-        {{ with .Params.authors }}
-        {{ range $ind, $val := . }}
-        {{ $author := $val | urlize }}
-        {{ with $.Site.GetPage "authors" $author}}
-        <aside class="author">
-          <figure>
-            <img src="{{ .Params.photo }}">
-          </figure>
-          <h3>
-            {{ .Params.name }}
-            <a href="http://twitter.com/{{ .Params.twitter }}" target="_blank">
-              <i class="fab fa-twitter social-icon"></i>
-            </a>
-            <a href="https://linkedin.com/in/{{ .Params.linkedin}}" target="_blank">
-              <i class="fab fa-linkedin social-icon"></i>
-            </a>
-          </h3>
-          <span class="author-bio">
-            {{ .Params.bio }}
-          </span>
-        </aside>
+{{ $navigation := .Site.Params.header_navigation | default "top"}}
 
+<div class="{{ if eq $navigation "top"}}container{{else if eq $navigation "left"}}container-fluid{{ end }}">
+
+  <div class="row center-sm ">
+    <div class="col-sm-8 col-xs-12">
+      <section class="post-detail">
+        <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+          <p class="post-meta">
+            <!-- @{{ if isset .Params "author" }}
+                {{ .Params.author }}
+              {{ else }}
+                {{ .Site.Params.author }}
+              {{ end }} · -->
+            {{ .Date.Format "Jan 2, 2006" }} ·
+            {{ .ReadingTime }} min read
+            <p class="authors">
+              {{ with .Params.authors }}
+              {{ range $ind, $val := . }}
+              {{ $author := $val | urlize }}
+              {{ with $.Site.GetPage "authors" $author}}
+              <aside class="author">
+                <figure>
+                  <img src="{{ .Params.photo }}">
+                </figure>
+                <h3>
+                  {{ .Params.name }}
+                  <a href="http://twitter.com/{{ .Params.twitter }}" target="_blank">
+                    <i class="fab fa-twitter social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/{{ .Params.linkedin}}" target="_blank">
+                    <i class="fab fa-linkedin social-icon"></i>
+                  </a>
+                </h3>
+                <span class="author-bio">
+                  {{ .Params.bio }}
+                </span>
+              </aside>
+      
+              {{ end }}
+              {{ end }}
+              {{ end }}
+            </p>
+          </p>
+        </header>
+        <article class="post-content">
+          {{ partial "post-content.html" . }}
+        </article>
+        <footer class="post-footer">
+          {{ if isset .Params "tags" }}
+          <ul class="post-tags">
+            {{ range $tag := .Params.tags }}
+            <li><a href="/tags/{{ $tag | urlize }}"><span class="tag">{{ $tag | title }}</span></a></li>
+            {{ end }}
+          </ul>
+          {{ end }}
+          <p class="post-copyright">
+            {{ if .Site.Copyright }}
+            {{ .Site.Copyright }}{{ end }}{{ if gt (div (sub now.Unix .Lastmod.Unix) 86400) 100 }}
+            This post was published <strong>{{ div (sub now.Unix .Lastmod.Unix) 86400 }}</strong> days ago, content in the
+            post may be inaccurate, even wrong now, please take risk yourself.
+            {{ end }}
+          </p>
+        </footer>
+        {{ if ne .Params.comments false }}
+        {{ if .Site.Params.Gitment }}{{ partial "gitment.html" . }}
+        {{ else if .Site.DisqusShortname }}{{ template "_internal/disqus.html" . }}
+        {{ else }}{{ end }}
         {{ end }}
-        {{ end }}
-        {{ end }}
-      </p>
-    </p>
-  </header>
-  <article class="post-content">
-    {{ partial "post-content.html" . }}
-  </article>
-  <footer class="post-footer">
-    {{ if isset .Params "tags" }}
-    <ul class="post-tags">
-      {{ range $tag := .Params.tags }}
-      <li><a href="/tags/{{ $tag | urlize }}"><span class="tag">{{ $tag | title }}</span></a></li>
-      {{ end }}
-    </ul>
-    {{ end }}
-    <p class="post-copyright">
-      {{ if .Site.Copyright }}
-      {{ .Site.Copyright }}{{ end }}{{ if gt (div (sub now.Unix .Lastmod.Unix) 86400) 100 }}
-      This post was published <strong>{{ div (sub now.Unix .Lastmod.Unix) 86400 }}</strong> days ago, content in the
-      post may be inaccurate, even wrong now, please take risk yourself.
-      {{ end }}
-    </p>
-  </footer>
-  {{ if ne .Params.comments false }}
-  {{ if .Site.Params.Gitment }}{{ partial "gitment.html" . }}
-  {{ else if .Site.DisqusShortname }}{{ template "_internal/disqus.html" . }}
-  {{ else }}{{ end }}
-  {{ end }}
-</section>
+      </section>
+    </div>
+  </div>
+</div>
 {{ partial "footer.html" . }}
 {{ end }}

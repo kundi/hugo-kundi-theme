@@ -43,7 +43,7 @@
   }
 
   @media screen and (max-width: 800px) {
-    position: relative;
+    position: relative!important;
     width: 100%;
     padding: 0;
     padding-left: 15px;
@@ -100,7 +100,7 @@
   transition: all $easing $speed;
   color: $toggle-menu-icon-color;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 767px) {
     position: absolute;
     top: .7rem;
     right: 1rem;

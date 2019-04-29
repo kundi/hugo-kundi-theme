@@ -3,23 +3,27 @@
 {{ end }}
 
 {{ define "main" }}
-  <section class="main post-detail terms-list">
-    <header class="post-header">
-      <h1 class="post-title">{{ .Title }}</h1>
-    </header>
-
-    <ul>
-      {{ range $key, $value := .Data.Pages }}
-      <li><a href="{{ .Permalink }}">{{ $value.Name }}</a></li>
-      {{ end }}
-    </ul>
-
-    <div class="tags-cloud">
-      {{ $data := .Data }}
-      {{ range $key, $value := $data.Terms.ByCount }}
-        {{ $weight := $value.Count }}
-        <a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="tag-{{ if eq $weight 1 }}s{{ else if eq $weight 2 }}m{{ else if eq $weight 4 }}l{{ else if eq $weight 8 }}xl{{ else }}xxl{{ end }}">{{ $value.Name }}</a>
-      {{ end }}
+  <section class="post-detail terms-list">
+    <div class="row center-sm">
+      <div class="col-sm-10">
+        <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+        </header>
+    
+        <ul>
+          {{ range $key, $value := .Data.Pages }}
+          <li><a href="{{ .Permalink }}">{{ $value.Name }}</a></li>
+          {{ end }}
+        </ul>
+    
+        <div class="tags-cloud">
+          {{ $data := .Data }}
+          {{ range $key, $value := $data.Terms.ByCount }}
+            {{ $weight := $value.Count }}
+            <a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="tag-{{ if eq $weight 1 }}s{{ else if eq $weight 2 }}m{{ else if eq $weight 4 }}l{{ else if eq $weight 8 }}xl{{ else }}xxl{{ end }}">{{ $value.Name }}</a>
+          {{ end }}
+        </div>
+      </div>
     </div>
   </section>
   {{ partial "footer.html" . }}
