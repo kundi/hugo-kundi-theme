@@ -2,14 +2,18 @@
   height: 100%;
   padding: 0;
   position: fixed;
-  padding-left: 50px;
+  margin-left: 50px;
 
   @media screen and (max-width: 1000px) {
-    padding-left: 20px;
+    margin-left: 20px;
   }
 
   @media screen and (max-width: 900px) {
-    padding-left: 15px;
+    margin-left: 15px;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-left: 10px;
   }
 
   & .menu-list {
@@ -24,6 +28,8 @@
   & .menu-item {
     float: unset;
     display: block;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 }
