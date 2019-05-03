@@ -65,6 +65,22 @@ window.addEventListener('scroll', function () {
   ticking = true;
 });
 
+
+// make footer always on bottom of the page
+var footer_height = document.querySelector('.site-footer').clientHeight;
+var section_height = document.querySelector('.home-page').clientHeight;
+var window_height = screen.height - footer_height;
+if (section_height <= window_height) {
+  console.log('hi');
+  document.querySelector('.home-page').style.height = window_height - 81 + "px";  
+  
+  if (section_height == 40) {
+    document.querySelector('.home-page').style.height = window_height - 41 + "px";  
+  }
+}
+
+
+
 // Smooth Scroll to top when click toTopBtn
 var scroll = new SmoothScroll('a[href*="#"]');
 toTopBtn &&
