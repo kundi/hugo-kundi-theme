@@ -69,7 +69,7 @@ window.addEventListener('scroll', function () {
 // make footer always on bottom of the page
 var footer_height = document.querySelector('.site-footer').clientHeight;
 var section_height = document.querySelector('.home-page').clientHeight;
-var window_height = screen.height - footer_height;
+var window_height = window.innerHeight - footer_height;
 if (section_height <= window_height) {
   console.log('hi');
   document.querySelector('.home-page').style.height = window_height - 81 + "px";  
