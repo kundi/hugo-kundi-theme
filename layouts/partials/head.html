@@ -9,6 +9,10 @@
 {{- $icon192 := "icons/icon-192x192.png" -}}
 {{- $manifest := "manifest.json" -}}
 {{- $avatar := resources.Get (.Site.Params.avatar | default "images/avatar.png") -}}
+{{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
+{{- $fb-share := resources.Get ("images/fb-share.png" | default "images/logo.png") -}}
+{{- $twitter-share := resources.Get ("images/twitter-share.png" | default "images/logo.png") -}}
+{{- $open-graph-logo := resources.Get ("images/open-graph.png" | default "images/logo.png") -}}
 {{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.Minify -}}
 
 <!-- DNS Prefetch -->
@@ -39,10 +43,10 @@
 {{ end }}
 <!-- Rss -->
 {{ if .RSSLink }}
-  {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `
+{{ with .OutputFormats.Get "rss" -}}
+{{ printf `
   <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
+{{ end -}}
 {{ end }}
 <!-- end -->
 {{ if and (eq .Kind "page") (eq .Type "post") }}
@@ -64,7 +68,7 @@
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ .Summary | plainify }}">
-<meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
+<meta name="twitter:image" content="{{ $twitter-share.RelPermalink }}">
 {{ end }}
 
 <!-- Facebook Open Graph -->
@@ -72,7 +76,8 @@
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ .Summary | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $avatar.RelPermalink }}{{ end }}">
+<meta property="og:image"
+  content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $fb-share.RelPermalink }}{{ end }}">
 
 {{ else }}
 
@@ -85,18 +90,20 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
-<meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta name="twitter:title"
+  content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
 {{ with .Site.Params.description }}
 <meta name="twitter:description" content="{{ . }}">{{ end }}
-<meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
+<meta name="twitter:image" content="{{ $twitter-share.RelPermalink }}">
 
 <!-- Facebook Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta property="og:title"
+  content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
 {{ with .Site.Params.description }}
 <meta property="og:description" content="{{ . }}">{{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ $avatar.RelPermalink }}">
+<meta property="og:image" content="{{ $open-graph-share.RelPermalink }}">
 
 {{ end }}
 
@@ -143,9 +150,10 @@
 <!-- Preload -->
 <link rel="preload" href="{{ $style.RelPermalink }}" as="style">
 <link rel="preload" href="{{ $avatar.RelPermalink }}" as="image">
+<link rel="preload" href="{{ $logo.RelPermalink }}" as="image">
 <!-- add fonts -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-  crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 <!-- FlexBox only css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
