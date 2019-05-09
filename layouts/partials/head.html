@@ -24,7 +24,9 @@
 {{ with .Site.Params.Gitment }}
 <link href="//imsun.github.io" rel="dns-prefetch">{{ end }}
 {{ with .Site.GoogleAnalytics }}
-<link href="//www.google-analytics.com" rel="dns-prefetch">{{ end }}
+<link href="//www.google-analytics.com" rel="dns-prefetch">
+  {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
 
 <!-- Rss -->
 {{ if .RSSLink }}
