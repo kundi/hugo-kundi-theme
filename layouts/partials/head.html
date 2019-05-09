@@ -25,9 +25,18 @@
 <link href="//imsun.github.io" rel="dns-prefetch">{{ end }}
 {{ with .Site.GoogleAnalytics }}
 <link href="//www.google-analytics.com" rel="dns-prefetch">
-  {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ with $.Site.Params.google_tag_manager }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.google_tag_manager }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
 
+  gtag('config', '{{ $.Site.Params.google_tag_manager }}');
+</script>
+{{ end }}
 <!-- Rss -->
 {{ if .RSSLink }}
   {{ with .OutputFormats.Get "rss" -}}
