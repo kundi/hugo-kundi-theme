@@ -7,8 +7,13 @@
   <h1 class="title">
     <a href="{{ .Site.Home.URL }}">
       <img class="logo" src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Title }}">
+<<<<<<< HEAD
       {{ with $.Site.Params.sitename }}
       <span class="site-name">{{ $.Site.Params.sitename }}</span>
+=======
+      {{ width $.Site.Params.sitename }}
+      <span class="site-name">{{ .Site.Params.sitename }}</span>
+>>>>>>> 1ab5c70301c13d5d54b4e58b84f7b0ecbced99a6
       {{ end }}
     </a>
   </h1>
