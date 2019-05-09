@@ -10,9 +10,9 @@
 {{- $manifest := "manifest.json" -}}
 {{- $avatar := resources.Get (.Site.Params.avatar | default "images/avatar.png") -}}
 {{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
-{{- $fb-share := resources.Get ("images/fb-share.png" | default "images/logo.png") -}}
-{{- $twitter-share := resources.Get ("images/twitter-share.png" | default "images/logo.png") -}}
-{{- $open-graph-logo := resources.Get ("images/open-graph.png" | default "images/logo.png") -}}
+{{- $fbShare := resources.Get (.Site.Params.fb_share | default "images/fb-share.png") -}}
+{{- $twitterShare := resources.Get (.Site.Params.twitter_share | default "images/twitter-share.png") -}}
+{{- $openGraphShare := resources.Get (.Site.Params.open_graph | default "images/open-graph.png") -}}
 {{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.Minify -}}
 
 <!-- DNS Prefetch -->
@@ -68,7 +68,7 @@
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ .Summary | plainify }}">
-<meta name="twitter:image" content="{{ $twitter-share.RelPermalink }}">
+<meta name="twitter:image" content="{{ $twitterShare.RelPermalink }}">
 {{ end }}
 
 <!-- Facebook Open Graph -->
@@ -77,7 +77,7 @@
 <meta property="og:description" content="{{ .Summary | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image"
-  content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $fb-share.RelPermalink }}{{ end }}">
+  content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $fbShare.RelPermalink }}{{ end }}">
 
 {{ else }}
 
@@ -94,7 +94,7 @@
   content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
 {{ with .Site.Params.description }}
 <meta name="twitter:description" content="{{ . }}">{{ end }}
-<meta name="twitter:image" content="{{ $twitter-share.RelPermalink }}">
+<meta name="twitter:image" content="{{ $twitterShare.RelPermalink }}">
 
 <!-- Facebook Open Graph -->
 <meta property="og:type" content="website">
@@ -103,7 +103,7 @@
 {{ with .Site.Params.description }}
 <meta property="og:description" content="{{ . }}">{{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ $open-graph-share.RelPermalink }}">
+<meta property="og:image" content="{{ $openGraphShare.RelPermalink }}">
 
 {{ end }}
 
