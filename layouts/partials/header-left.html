@@ -8,7 +8,7 @@
       <h1 class="title">
         <a href="{{ .Site.Home.URL }}">
           <img class="logo" src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Title }}">
-          {{ width $.Site.Params.sitename }}
+          {{ with $.Site.Params.sitename }}
           <span class="site-name">{{ .Site.Params.sitename }}</span>
           {{ end }}
         </a>
