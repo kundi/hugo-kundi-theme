@@ -12,7 +12,6 @@
 {{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
 {{- $fbShare := .Site.Params.fb_share | default "images/fb-share.png" -}}
 {{- $twitterShare := .Site.Params.twitter_share | default "images/twitter-share.png" -}}
-{{- $openGraphShare := .Site.Params.open_graph | default "images/open-graph.png" -}}
 {{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.Minify -}}
 
 <!-- DNS Prefetch -->
@@ -103,7 +102,7 @@
 {{ with .Site.Params.description }}
 <meta property="og:description" content="{{ . }}">{{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{if .Params.img}}{{ .Params.img | absURL }}{{ else }}{{ $openGraphShare | absURL  }}{{ end }}">
+<meta property="og:image" content="{{if .Params.img}}{{ .Params.img | absURL }}{{ else }}{{ $fbShare | absURL  }}{{ end }}">
 
 {{ end }}
 
