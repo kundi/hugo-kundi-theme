@@ -8,8 +8,7 @@
 {{- $icon152 := "icons/icon-152x152.png" -}}
 {{- $icon192 := "icons/icon-192x192.png" -}}
 {{- $manifest := "manifest.json" -}}
-{{- $avatar := resources.Get (.Site.Params.avatar | default "images/avatar.png") -}}
-{{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
+{{- $logo := resources.Get (.Site.Params.site_logo | default "images/logo.png") -}}
 {{- $fbShare := .Site.Params.fb_share | default "images/fb-share.png" -}}
 {{- $twitterShare := .Site.Params.twitter_share | default "images/twitter-share.png" -}}
 {{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.Minify -}}
@@ -148,7 +147,6 @@
 
 <!-- Preload -->
 <link rel="preload" href="{{ $style.RelPermalink }}" as="style">
-<link rel="preload" href="{{ $avatar.RelPermalink }}" as="image">
 <link rel="preload" href="{{ $logo.RelPermalink }}" as="image">
 <!-- add fonts -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
