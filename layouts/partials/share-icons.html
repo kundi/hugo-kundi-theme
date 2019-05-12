@@ -1,0 +1,13 @@
+<section class="social_share">
+  <h3>Share with friends:</h3>
+  <div class="social_icons">
+    {{ $url := printf "%s" .URL | absLangURL }}
+    <a class="share-icon fab fa-facebook-f" href="https://facebook.com/sharer.php?u={{ $url }}" rel="nofollow"
+      target="_blank" title="Share on Facebook"></a>
+    <a class="share-icon fab fa-twitter" href="https://twitter.com/share?text={{ $url }}" rel="nofollow" target="_blank"
+      title="Share on Twitter"></a>
+    <a class="share-icon fab fa-google-plus-g" href="https://plus.google.com/share?url={{ $url }}" rel="nofollow"
+      target="_blank" title="Share on Google+"></a>
+    <a class="share-icon fa fa-envelope" href="mailto:?subject={{.URL}}" title="Share via Email"></a>
+  </div>
+</section>
