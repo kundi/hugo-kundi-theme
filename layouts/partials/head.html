@@ -9,8 +9,8 @@
 {{- $icon192 := "icons/icon-192x192.png" -}}
 {{- $manifest := "manifest.json" -}}
 {{- $logo := resources.Get (.Site.Params.site_logo | default "images/logo.png") -}}
-{{- $fbShare := .Site.Params.fb_share | default "images/fb-share.png" -}}
-{{- $twitterShare := .Site.Params.twitter_share | default "images/twitter-share.png" -}}
+{{- $fbShare := .Site.Params.fb_share | default "/assets/images/fb-share.png" -}}
+{{- $twitterShare := .Site.Params.twitter_share | default "/assets/images/twitter-share.png" -}}
 {{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.Minify -}}
 
 <!-- DNS Prefetch -->
@@ -48,6 +48,7 @@
 {{ end }}
 <!-- end -->
 {{ if and (eq .Kind "page") (eq .Type "post") }}
+
 
 <!-- Page Author & Description -->
 {{ with .Params.author }}
