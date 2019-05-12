@@ -1,5 +1,4 @@
-{{- $wechat := resources.Get (.Site.Params.wechat | default "images/qrcode.jpg") -}}
-{{- $avatar := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
+{{- $logo := resources.Get (.Site.Params.avatar | default "images/logo.png") -}}
 
         
     <header class="site-header header-left">
@@ -7,7 +6,7 @@
       {{ if eq .Kind "home" }} {{ end }}
       <h1 class="title">
         <a href="{{ .Site.Home.URL }}">
-          <img class="logo" src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Title }}">
+          <img class="logo" src="{{ $logo.RelPermalink }}" alt="{{ .Site.Title }}">
          
           {{ with $.Site.Params.sitename }}
           <span class="site-name">{{ $.Site.Params.sitename }}</span>
@@ -209,14 +208,6 @@
             <li class="social-item">
               <a href="//weibo.com/{{ . }}" title="Weibo" aria-label="Weibo">
                 <span class="icon icon-weibo" aria-hidden="true"></span>
-              </a>
-            </li>
-          {{- end -}}
-
-          {{- with .Site.Params.wechat -}}
-            <li class="social-item">
-              <a href="{{ $wechat.RelPermalink }}" title="Wechat" aria-label="Wechat">
-                <span class="icon icon-wechat" aria-hidden="true"></span>
               </a>
             </li>
           {{- end -}}
