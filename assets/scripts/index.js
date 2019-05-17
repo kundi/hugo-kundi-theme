@@ -65,6 +65,28 @@ window.addEventListener('scroll', function () {
   ticking = true;
 });
 
+// Share icon popup
+$('a.share').click(function (e) {
+  e.preventDefault();
+  var $link = $(this);
+  var href = $link.attr('href');
+  var network = $link.attr('data-network');
+
+  var networks = {
+    facebook: { width: 600, height: 300 },
+    twitter: { width: 600, height: 254 },
+    google: { width: 515, height: 490 },
+    email: { width: 515, height: 500 },
+    linkedin: { width: 600, height: 473 }
+  };
+
+  var popup = function (network) {
+    var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
+    window.open(href, '', options + 'height=' + networks[network].height + ',width=' + networks[network].width);
+  }
+
+  popup(network);
+});
 
 // make footer always on bottom of the page
 var footer_height = document.querySelector('.site-footer').clientHeight;
