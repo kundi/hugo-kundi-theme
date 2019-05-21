@@ -22,9 +22,13 @@
               {{ $author := $val | urlize }}
               {{ with $.Site.GetPage "authors" $author}}
               <aside class="author">
+                {{ with .Params.photo }}
+                {{ $imageResource := ($.Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" . ) }}
+                {{ $resized := $imageResource.Fill "200x200" }}
                 <figure>
-                  <img src="{{ .Params.photo }}">
+                  <img src="{{ $resized.RelPermalink }}" />
                 </figure>
+                {{ end }}
                 <h3>
                   {{ .Params.name }}
                   <a href="http://twitter.com/{{ .Params.twitter }}" target="_blank">
