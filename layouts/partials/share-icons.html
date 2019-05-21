@@ -3,16 +3,15 @@
   <div class="social_icons">
     {{ $title := .Title }}
     {{ $url := printf "%s" .URL | absURL }}
-    {{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
+    {{ $body := print "Check out this article I found on the "  .Site.Title " Blog:" "\n"  $url "\n" }}
     <a class="share share-icon fab fa-facebook-f facebook" data-network="facebook" href="https://facebook.com/sharer.php?u={{ $url }}&t={{$title}}" rel="nofollow" target="_blank" title="Share on Facebook"></a>
 
     <a class="share share-icon fab fa-twitter twitter" data-network="twitter" href="https://twitter.com/share?text={{.Title}}{{with .Site.Social.twitter }}&via={{ . }}{{ end }} &url={{$url}}" rel="nofollow" target="_blank" title="Share on Twitter"></a>
     
     <a class="share linkedin share-icon fab fa-linkedin" data-network="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{$url}}&title={{.Title}}&source={{.Site.Title}}" title="Share on Linkedin"></a>
     
-    <a class="share google share-icon fab fa-google-plus-g" data-network="google" href="mailto:?subject=Check%20out%20{{ $title }}.&body={{ $body }}" rel="nofollow" target="_blank" title="Share on Google+"></a>
+    <a class="share google share-icon fab fa-google-plus-g" data-network="google" href="mailto:?subject=Check%20out%20{{ $title }}&body={{ $body }}" rel="nofollow" target="_blank" title="Share on Google+"></a>
     
-    <a class="share email share-icon fa fa-envelope" data-network="email" href="mailto:?subject=Check%20out%20{{ $title }}.&body={{ $body }}" rel="nofollow" target="_blank" title="Share on Mail"></a>
-  
+    <a class="share email share-icon fa fa-envelope" data-network="email" href="mailto:?subject={{ $title }}&body={{ $body }}" rel="nofollow" target="_blank" title="Share on Mail"></a>
   </div>
 </section>
