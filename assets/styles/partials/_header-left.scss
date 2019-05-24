@@ -114,10 +114,6 @@
       &:focus, &:active {
         outline: none;
       }
-
-      &:hover {
-        border-color: $link-color;
-      }
     }
 
     button {
