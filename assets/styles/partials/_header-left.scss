@@ -43,8 +43,6 @@
     }
   }
 
-  
-
   & .menu-list {
     margin-top: 130px;
     float: unset;
@@ -63,29 +61,35 @@
 
   .navbar-form {
     position: relative;
-    width: 130%;
-    max-width: 130%;
+    width: 100%;
+    max-width: 100%;
 
     @media screen and (max-width: 1400px) {
-      width: 115%;
-      max-width: 115%;
+      max-width: 85%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      max-width: 77%;
     }
 
     @media screen and (max-width: 1200px) {
-      width: 160%;
-      max-width: 160%;
+      max-width: 100%;
     }
 
-    @media screen and (max-width: 1000px) {
-      max-width: 140%;
+    @media screen and (max-width: 900px) {
+      max-width: 90%;
     }
 
     @media screen and (max-width: 801px) {
-      max-width: 95%;
+      max-width: 75%;
     }
 
+    @media screen and (max-width: 768px) {
+      max-width: 50%;
+    }
+    
     form {
-      position: absolute;
+      position: relative;
     }
 
     p {
@@ -96,19 +100,24 @@
     }
 
     input {
+      display: inline-block;
       width: 90%!important;
       max-width: 100%;
-      display: block;
-      border-radius: 5px;
+      border-radius: 5px 0 0 5px;
       margin: 0;
-      z-index: 10;
       border: solid 1px #aaa;
       border-right: 0;
+      font-size: 12px;
+      height: 20px;
+      transition: all .3s;
 
       &:focus, &:active {
         outline: none;
       }
 
+      &:hover {
+        border-color: $link-color;
+      }
     }
 
     button {
@@ -116,17 +125,26 @@
       position: absolute;
       border: solid 1px #aaa;
       padding: .35rem;
-      top: 50%;
+      background: #fff;
       margin: 0;
-      font-size: 20px;
-      // width: 100%;
-      // height: 100%;
+      font-size: 16px;
       box-sizing: border-box;
-      transform: translateY(-50%);
-      right: 0;
+      right: -38px;
+      border-radius: 0 5px 5px 0;
+      display: inline-block;
+      height: 38px;
+      width: 38px;
+      top: 0;
       color: #aaa;
-      // background: none;
+      transition: all .3s;
+
+      @media screen and (max-width: 768px) {
+        right: 0;
+      }
+
+      &:hover {
+        background: #eee;
+      }
     }
   }
-
 }
