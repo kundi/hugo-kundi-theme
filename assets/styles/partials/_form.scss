@@ -2,6 +2,24 @@ form {
   label {
     display: block;
   }
+  
+  &.success {
+  
+    input, button {
+      border-color: #4BB543!important;
+    }
+
+    i {
+      color: #4BB543 !important;
+    }
+  }
+  
+  &.failure {
+    
+    input, button {
+      border-color: red!important;
+    }
+  }
 }
 
 input {
