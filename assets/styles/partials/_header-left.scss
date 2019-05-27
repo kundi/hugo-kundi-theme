@@ -141,6 +141,10 @@
       &:hover {
         background: #eee;
       }
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
