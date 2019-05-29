@@ -73,29 +73,29 @@
 
 
 <!-- Page Author & Description -->
+{{- $description := replace .Summary "\n" "<br />" | safeHTML -}}
 {{ with .Params.author }}
 <meta name="author" content="{{ . }}">{{ end }}
-<meta name="description" content="{{ .Summary | plainify }}">
-
+<meta name="description" content="{{slicestr $description 0 180  | safeHTML}}">
 <!-- Twitter Card -->
 {{ if isset .Params "cover" }}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ .Summary | plainify }}">
+<meta name="twitter:description" content="{{slicestr $description 0 180  | safeHTML}}">
 <meta name="twitter:image" content="{{if .Params.img}}{{ .Params.img | absURL }}{{ else }}{{ $twitterShare | absURL }}{{ end }}">
 {{ else }}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ .Summary | plainify }}">
+<meta name="twitter:description" content="{{slicestr $description 0 180  | safeHTML}}">
 <meta name="twitter:image" content="{{if .Params.img}}{{ .Params.img | absURL }}{{ else }}{{ $twitterShare | absURL }}{{ end }}">
 {{ end }}
 
 <!-- Facebook Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ .Summary | plainify }}">
+<meta property="og:description" content="{{slicestr $description 0 180  | safeHTML}}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image"
   content="{{ if isset .Params "img" }}{{ .Params.img | absURL }}{{ else }}{{ $fbShare | absURL }}{{ end }}">
